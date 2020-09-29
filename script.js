@@ -16,8 +16,8 @@ score = 0
 
 function game() {
 
-    px += xv;
-    py += yv;
+    px += xv
+    py += yv
     if (px < 0) {
         px = tc - 1
     }
@@ -47,8 +47,9 @@ function game() {
             tail = 5
         }
     }
-    ctx.fillStyle = "red"
-    ctx.fillRect(ax * gs, ay * gs, gs - 2, gs - 2)
+    const img = new Image()
+    img.src = 'images/apple.png';
+    ctx.drawImage(img, ax * gs, ay * gs, gs - 2, gs - 2);
 
     trail.push({
         x: px,
