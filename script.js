@@ -15,7 +15,7 @@ trail = []
 tail = 5
 score = 0
 
-var myElement = document.getElementById('gc');
+var myElement = document.getElementsByTagName("BODY")[0];
 var mc = new Hammer(myElement);
 
 mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
