@@ -23,6 +23,29 @@ body {
     transform: translateX(-50%) translateY(-50%);
 }
 
+@media(max-width: 1100px) {
+    #game {
+        left: 50%
+    }
+}
+
+@media(max-width: 700px) {
+    #gc {
+        width: 500px;
+        height: 500px;
+    }
+}
+
+@media(max-width: 550px) {
+    #gc {
+        width: 330px;
+        height: 330px;
+    }
+    #game {
+        left: 50%
+    }
+}
+
 #game h1 {
     padding-bottom: 20px;
 }

@@ -4,6 +4,8 @@ window.onload = function() {
     document.addEventListener("keydown", keyPush)
     setInterval(game, 1000 / 10)
 }
+
+
 px = py = 10
 gs = tc = 20
 ax = Math.floor(Math.random() * tc)
@@ -13,6 +15,10 @@ trail = []
 tail = 5
 score = 0
 
+var myElement = document.getElementById('gc');
+var mc = new Hammer(myElement);
+
+mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
 
 function game() {
 
@@ -68,6 +74,41 @@ function game() {
     }
     document.getElementById("score").innerHTML = "SCORE: " + score
 }
+
+
+mc.on("panleft panright panup pandown tap press", function(ev) {
+    console.log(ev.type + " gesture detected.");
+    switch (ev.type) {
+        case "panleft":
+            if (xv == 1) {
+                break;
+            }
+            xv = -1;
+            yv = 0;
+            break;
+        case "panup":
+            if (yv == 1) {
+                break;
+            }
+            xv = 0;
+            yv = -1;
+            break;
+        case "panright":
+            if (xv == -1) {
+                break;
+            }
+            xv = 1;
+            yv = 0;
+            break;
+        case "pandown":
+            if (yv == -1) {
+                break;
+            }
+            xv = 0;
+            yv = 1;
+            break;
+    }
+});
 
 function keyPush(evt) {
     switch (evt.keyCode) {
